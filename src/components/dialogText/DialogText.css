@@ -1,0 +1,24 @@
+.dialog_text_container {
+    height: 100%;
+    width: 100%;
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+.dialog_text_title_container {
+    height: 10%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+.dialog_text_text_container {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
