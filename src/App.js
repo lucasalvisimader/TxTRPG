@@ -1,5 +1,6 @@
 // styles
 import './App.css';
+import './assets/custom/Color.css';
 
 // react
 import { Route, BrowserRouter, Routes } from "react-router-dom";
