@@ -1,14 +1,18 @@
 // styles
-import { useEffect, useState } from 'react';
 import './DialogText.css';
 
+// react
+import { useEffect, useState } from 'react';
+
 export const DialogText = ({ isChoice, text, title }) => {
-    const [innerHtmlTextCounter, setInnerHtmlTextCounter] = useState(0);
     const [isWaitingToFinishWriting, setIsWaitingToFinishWriting] = useState(false);
+    const [isFinishedWriting, setIsFinishedWriting] = useState(false);
     let animationInterval;
     let blinkTimeout;
 
     const initializeDialogText = () => {
+        clearInterval(animationInterval);
+
         const sentenceElement = document.querySelector('.dialog_text_text_container');
         let offset = 0;
         const speed = 10;
@@ -19,22 +23,23 @@ export const DialogText = ({ isChoice, text, title }) => {
         }
 
         const handleAnimation = () => {
-            if (!(innerHtmlTextCounter >= text.length)) {
-                console.log("socorro2")
+            if (!(offset >= text.length)) {
                 offset++;
-                setInnerHtmlTextCounter(offset)
                 updateSentence();
+            } else if (!(isFinishedWriting)) {
+                setIsFinishedWriting(true);
             }
         }
-        animationInterval = setInterval(handleAnimation, speed); // fazer só uma vez, acho que está fazendo várias
+        animationInterval = setInterval(handleAnimation, speed);
     }
+
 
     const blinkUnderlineEffectText = () => {
         const sentenceElement = document.querySelector('.dialog_text_text_container');
         if (!(isWaitingToFinishWriting)) {
-            console.log("socorro")
             clearTimeout(blinkTimeout);
             setIsWaitingToFinishWriting(true);
+
             const lastChar = sentenceElement.innerHTML.charAt(sentenceElement.innerHTML.length - 1);
             if (lastChar === "_") {
                 sentenceElement.innerHTML = sentenceElement.innerHTML.slice(0, - 1);
@@ -43,22 +48,19 @@ export const DialogText = ({ isChoice, text, title }) => {
             }
             blinkTimeout = setTimeout(() => {
                 setIsWaitingToFinishWriting(false)
-            }, 2000);
+            }, 750);
         }
     }
 
     useEffect(() => {
-        clearInterval(animationInterval);
-        if (!(innerHtmlTextCounter >= text.length)) {
-            initializeDialogText();
-        }
+        initializeDialogText();
     }, [])
 
     useEffect(() => {
-        if (innerHtmlTextCounter >= text.length) {
+        if (isFinishedWriting) {
             blinkUnderlineEffectText();
         }
-    }, [innerHtmlTextCounter])
+    }, [isFinishedWriting, isWaitingToFinishWriting])
 
 
     return (<>
