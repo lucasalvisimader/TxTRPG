@@ -19,26 +19,31 @@ export const DialogText = ({ isChoice, text, title }) => {
         }
 
         const handleAnimation = () => {
-            offset++;
-            setInnerHtmlTextCounter(offset)
-            updateSentence();
+            if (!(innerHtmlTextCounter >= text.length)) {
+                console.log("socorro2")
+                offset++;
+                setInnerHtmlTextCounter(offset)
+                updateSentence();
+            }
         }
-        animationInterval = setInterval(handleAnimation, speed);
+        animationInterval = setInterval(handleAnimation, speed); // fazer só uma vez, acho que está fazendo várias
     }
 
     const blinkUnderlineEffectText = () => {
         const sentenceElement = document.querySelector('.dialog_text_text_container');
         if (!(isWaitingToFinishWriting)) {
+            console.log("socorro")
             clearTimeout(blinkTimeout);
             setIsWaitingToFinishWriting(true);
-            setTimeout(() => {
-                setIsWaitingToFinishWriting(false)
-            }, 1000);
-            if (sentenceElement.innerHTML.charAt(sentenceElement.innerHTML.length - 1) === "_") {
+            const lastChar = sentenceElement.innerHTML.charAt(sentenceElement.innerHTML.length - 1);
+            if (lastChar === "_") {
                 sentenceElement.innerHTML = sentenceElement.innerHTML.slice(0, - 1);
             } else {
                 sentenceElement.innerHTML += "_";
             }
+            blinkTimeout = setTimeout(() => {
+                setIsWaitingToFinishWriting(false)
+            }, 2000);
         }
     }
 
