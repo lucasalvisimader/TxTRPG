@@ -59,7 +59,7 @@ export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartO
 
     useEffect(() => {
         if (document.querySelector('.dialog_text_text_container').innerHTML !== text) {
-            initializeDialogText('.dialog_text_text_container', text, true, 3);
+            initializeDialogText('.dialog_text_text_container', text, true, 30);
         }
     }, [whichPartOfChapter, text])
 

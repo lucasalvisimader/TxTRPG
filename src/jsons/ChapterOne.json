@@ -491,6 +491,36 @@
                 "choice",
                 "Derrubar o manequim no chão",
                 "0.3.7.2"
+            ],
+            [
+                "choice",
+                "Procurar algo dentro da escrivaninha",
+                "0.3.1"
+            ],
+            [
+                "choice",
+                "Pegar a lanterna",
+                "0.3.2"
+            ],
+            [
+                "choice",
+                "Verificar a coisa pendurada na parede",
+                "0.3.3"
+            ],
+            [
+                "choice",
+                "Procurar algo embaixo dos travesseiros",
+                "0.3.4"
+            ],
+            [
+                "choice",
+                "Procurar algo embaixo da coberta",
+                "0.3.5"
+            ],
+            [
+                "choice",
+                "Procurar algo embaixo da cama",
+                "0.3.6"
             ]
         ]
     },
