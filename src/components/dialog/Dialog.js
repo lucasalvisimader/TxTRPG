@@ -1,11 +1,13 @@
 // styles
+import './Dialog.css';
+
+// components
 import { ChoiceButton } from '../choiceButton/ChoiceButton';
-import './DialogText.css';
 
 // react
 import { useEffect, useState } from 'react';
 
-export const DialogText = ({ title, text, choices, whichPartOfChapter, setWhichPartOfChapter }) => {
+export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartOfChapter }) => {
     const [isWaitingToFinishWriting, setIsWaitingToFinishWriting] = useState(false);
     const [isFinishedWriting, setIsFinishedWriting] = useState(false);
     let animationInterval;
@@ -56,14 +58,16 @@ export const DialogText = ({ title, text, choices, whichPartOfChapter, setWhichP
     }
 
     useEffect(() => {
-        initializeDialogText('.dialog_text_text_container', text, true, 3);
-    }, [])
+        if (document.querySelector('.dialog_text_text_container').innerHTML !== text) {
+            initializeDialogText('.dialog_text_text_container', text, true, 3);
+        }
+    }, [whichPartOfChapter, text])
 
     useEffect(() => {
         if (isFinishedWriting) {
             blinkUnderlineEffectText('.dialog_text_text_container');
         }
-    }, [isFinishedWriting, isWaitingToFinishWriting])
+    }, [isFinishedWriting, isWaitingToFinishWriting, whichPartOfChapter, text])
 
     return (<>
         <div className='dialog_text_container'>
@@ -76,7 +80,8 @@ export const DialogText = ({ title, text, choices, whichPartOfChapter, setWhichP
                     {isFinishedWriting &&
                         choices.map((choice, index) => {
                             return (<ChoiceButton key={index} id={choice[1]} text={choice[0]} timeoutTime={index}
-                                whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter} />);
+                                whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter}
+                                setIsFinishedWriting={setIsFinishedWriting} />);
                         })
                     }
                 </div>

@@ -28,7 +28,6 @@
 .dialog_text_text_container {
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     padding-left: 10%;
     padding-right: 10%;
@@ -36,11 +35,11 @@
 }
 
 .dialog_text_choices_container {
-    height: 10%;
-    width: 100%;
+    width: 120%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-left: 10%;
     margin-right: 10%;
 }
