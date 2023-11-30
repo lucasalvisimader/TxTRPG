@@ -15,16 +15,18 @@ export const ChapterOne = () => {
     const [whichPartOfChapter, setWhichPartOfChapter] = useState(0);
 
     const getChoices = () => {
-        json.chapter_one.forEach(choice => {
-            if (choice[0] === "choice") {
-                setChoices((prevState) => {
-                    const key = choice[1];
-                    if (!prevState.some(item => item[0] === key)) {
-                        return [...prevState, [key, choice[2]]];
-                    }
-                    return prevState;
-                });
-            }
+        json.chapter_one.forEach(jsonFormatted => {
+            jsonFormatted[0].forEach(choice => {
+                if (choice[0] === "choice") {
+                    setChoices((prevState) => {
+                        const key = choice[1];
+                        if (!prevState.some(item => item[0] === key)) {
+                            return [...prevState, [key, choice[2]]];
+                        }
+                        return prevState;
+                    });
+                }
+            })
         })
     }
 
@@ -34,8 +36,8 @@ export const ChapterOne = () => {
 
     return (<>
         <div className='chapter_one_container'>
-            <DialogText title={json.chapter_one[0][1]} text={json.chapter_one[1][1]}
-                choices={choices} />
+            <DialogText title={json.chapter_one[0][0][0][1]} text={json.chapter_one[0][0][1][1]} choices={choices}
+                whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter} />
         </div>
     </>);
 }

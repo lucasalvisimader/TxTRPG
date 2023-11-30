@@ -5,3 +5,7 @@
     border: none;
     font-size: 1rem;
 }
+
+.choice_button_button:hover {
+    color: var(--white-hover);
+}

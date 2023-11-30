@@ -1,19 +1,32 @@
 {
     "chapter_one": [
-        [
-            "title", "Capítulo 1 - Bem-vinda ao lar"
-        ],
-        [
-            "text", "Consigo abrir meus olhos, mas não enxergo nada. Nada que eu consiga entender. Quem são vocês? Por que me olham? O que querem? Não me lembro de nada. Não lembro do meu nome. Que lugar é esse? O que fizeram comigo? Não possuo forças para falar. O que vocês fizeram comigo? Os estranhos começam a sair do quarto, um a um, e eu continuo deitada, sem conseguir me mexer. Súbito, algo que estava prendendo os meus braços solta, algo como uma corrente. Está muito escuro. A minha perna continua presa.", "0"
-        ],
-        [
-            "choice", "Continuar dormindo", "0.1"
-        ],
-        [
-            "choice", "Tentar soltar a perna", "0.2"
-        ],
-        [
-            "choice", "Tatear ao redor", "0.3"
-        ]
+        {
+            "0": [
+                [
+                    "title",
+                    "Capítulo 1 - Bem-vinda ao lar"
+                ],
+                [
+                    "text",
+                    "Consigo abrir meus olhos, mas não enxergo nada. Nada que eu consiga entender. Quem são vocês? Por que me olham? O que querem? Não me lembro de nada. Não lembro do meu nome. Que lugar é esse? O que fizeram comigo? Não possuo forças para falar. O que vocês fizeram comigo? Os estranhos começam a sair do quarto, um a um, e eu continuo deitada, sem conseguir me mexer.  Súbito, percebo que agora consigo movimentar os meus braços. Está muito escuro. A minha perna está presa.",
+                    "0"
+                ],
+                [
+                    "choice",
+                    "Continuar dormindo",
+                    "0.1"
+                ],
+                [
+                    "choice",
+                    "Tentar soltar a perna",
+                    "0.2"
+                ],
+                [
+                    "choice",
+                    "Tatear ao redor",
+                    "0.3"
+                ]
+            ]
+        }
     ]
 }

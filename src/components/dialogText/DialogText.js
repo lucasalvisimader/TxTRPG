@@ -5,7 +5,7 @@ import './DialogText.css';
 // react
 import { useEffect, useState } from 'react';
 
-export const DialogText = ({ title, text, choices }) => {
+export const DialogText = ({ title, text, choices, whichPartOfChapter, setWhichPartOfChapter }) => {
     const [isWaitingToFinishWriting, setIsWaitingToFinishWriting] = useState(false);
     const [isFinishedWriting, setIsFinishedWriting] = useState(false);
     let animationInterval;
@@ -56,7 +56,7 @@ export const DialogText = ({ title, text, choices }) => {
     }
 
     useEffect(() => {
-        initializeDialogText('.dialog_text_text_container', text, true, 2);
+        initializeDialogText('.dialog_text_text_container', text, true, 3);
     }, [])
 
     useEffect(() => {
@@ -75,8 +75,8 @@ export const DialogText = ({ title, text, choices }) => {
                 <div className='dialog_text_choices_container'>
                     {isFinishedWriting &&
                         choices.map((choice, index) => {
-                            return (<ChoiceButton key={index} id={index} text={choice[0]}
-                                initializeDialogText={initializeDialogText} />);
+                            return (<ChoiceButton key={index} id={choice[1]} text={choice[0]} timeoutTime={index}
+                                whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter} />);
                         })
                     }
                 </div>
