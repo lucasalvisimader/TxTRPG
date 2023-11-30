@@ -65,7 +65,6 @@ export const DialogText = ({ title, text, choices }) => {
         }
     }, [isFinishedWriting, isWaitingToFinishWriting])
 
-
     return (<>
         <div className='dialog_text_container'>
             <div className='dialog_text_title_container'>
@@ -76,9 +75,7 @@ export const DialogText = ({ title, text, choices }) => {
                 <div className='dialog_text_choices_container'>
                     {isFinishedWriting &&
                         choices.map((choice, index) => {
-                            setTimeout(() => {
-                            }, 1000);
-                            return (<ChoiceButton key={index} text={choice[0]}
+                            return (<ChoiceButton key={index} id={index} text={choice[0]}
                                 initializeDialogText={initializeDialogText} />);
                         })
                     }
