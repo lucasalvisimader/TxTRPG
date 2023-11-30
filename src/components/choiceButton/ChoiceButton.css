@@ -1,0 +1,7 @@
+.choice_button_button {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    font-size: 1rem;
+}

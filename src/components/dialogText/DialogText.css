@@ -14,12 +14,33 @@
     align-items: center;
 }
 
+.dialog_text_content {
+    height: 80%;
+    width: 80%;
+    align-self: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
 .dialog_text_text_container {
-    height: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    animation: typing 1s steps(60, end);
+}
+
+.dialog_text_choices_container {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     margin-left: 10%;
     margin-right: 10%;
-    animation: typing 1s steps(60, end);
 }

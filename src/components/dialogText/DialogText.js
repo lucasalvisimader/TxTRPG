@@ -1,29 +1,32 @@
 // styles
+import { ChoiceButton } from '../choiceButton/ChoiceButton';
 import './DialogText.css';
 
 // react
 import { useEffect, useState } from 'react';
 
-export const DialogText = ({ isChoice, text, title }) => {
+export const DialogText = ({ title, text, choices }) => {
     const [isWaitingToFinishWriting, setIsWaitingToFinishWriting] = useState(false);
     const [isFinishedWriting, setIsFinishedWriting] = useState(false);
     let animationInterval;
     let blinkTimeout;
 
-    const initializeDialogText = () => {
+    const initializeDialogText = (documentClass, jsonText, withUnderline, speed) => {
         clearInterval(animationInterval);
 
-        const sentenceElement = document.querySelector('.dialog_text_text_container');
+        const sentenceElement = document.querySelector(documentClass);
         let offset = 0;
-        const speed = 10;
 
         const updateSentence = () => {
-            const finalText = text.substring(0, offset) + "_";
+            let finalText = jsonText.substring(0, offset);
+            if (withUnderline) {
+                finalText = finalText + "_";
+            }
             sentenceElement.innerHTML = finalText;
         }
 
         const handleAnimation = () => {
-            if (!(offset >= text.length)) {
+            if (!(offset >= jsonText.length)) {
                 offset++;
                 updateSentence();
             } else if (!(isFinishedWriting)) {
@@ -34,8 +37,8 @@ export const DialogText = ({ isChoice, text, title }) => {
     }
 
 
-    const blinkUnderlineEffectText = () => {
-        const sentenceElement = document.querySelector('.dialog_text_text_container');
+    const blinkUnderlineEffectText = (documentText) => {
+        const sentenceElement = document.querySelector(documentText);
         if (!(isWaitingToFinishWriting)) {
             clearTimeout(blinkTimeout);
             setIsWaitingToFinishWriting(true);
@@ -53,12 +56,12 @@ export const DialogText = ({ isChoice, text, title }) => {
     }
 
     useEffect(() => {
-        initializeDialogText();
+        initializeDialogText('.dialog_text_text_container', text, true, 2);
     }, [])
 
     useEffect(() => {
         if (isFinishedWriting) {
-            blinkUnderlineEffectText();
+            blinkUnderlineEffectText('.dialog_text_text_container');
         }
     }, [isFinishedWriting, isWaitingToFinishWriting])
 
@@ -68,9 +71,18 @@ export const DialogText = ({ isChoice, text, title }) => {
             <div className='dialog_text_title_container'>
                 {title}
             </div>
-            <div className='dialog_text_text_container'>
-                {(isChoice && (<>
-                </>))}
+            <div className='dialog_text_content'>
+                <div className='dialog_text_text_container' />
+                <div className='dialog_text_choices_container'>
+                    {isFinishedWriting &&
+                        choices.map((choice, index) => {
+                            setTimeout(() => {
+                            }, 1000);
+                            return (<ChoiceButton key={index} text={choice[0]}
+                                initializeDialogText={initializeDialogText} />);
+                        })
+                    }
+                </div>
             </div>
         </div>
     </>);
