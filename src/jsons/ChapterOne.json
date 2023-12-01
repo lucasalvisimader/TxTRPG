@@ -63,7 +63,7 @@
                 "Apesar de tudo o que aconteceu, eu me sinto muito cansada. Eu continuo de olhos fechados, lentamente pegando no sono. ",
                 "Após um tempo, eu acordo novamente, percebendo que não estou mais acorrentada. ",
                 "Ao recuperar o senso dos meus arredores, eu percebe que estou em um lugar completamente diferente do anterior. ",
-                "Eu percebe que estou deitada em grama molhada esse tempo todo, de costas para a lua. ",
+                "Eu percebe que estou deitada em grama molhada esse tempo todo, de costas para a lua.",
                 "0.1.1"
             ],
             [
@@ -108,7 +108,7 @@
                 "Depois disso, não falaram mais nada. ",
                 "Um silêncio sepulcral foi instaurado no ambiente. ",
                 "O rangido da porta se fechando foi o que quebrou o silêncio. ",
-                "Além disso, é possível ver um brilho quase invisível da lua atravessando o que parece sem uma janela barricada, mas ela está muito longe para saber de certeza. ",
+                "Além disso, é possível ver um brilho quase invisível da lua atravessando o que parece sem uma janela barricada, mas ela está muito longe para saber de certeza.",
                 "0.3"
             ],
             [
@@ -133,18 +133,13 @@
             ],
             [
                 "choice",
-                "Procurar algo embaixo da coberta",
+                "Procurar algo embaixo da cama",
                 "0.3.5"
             ],
             [
                 "choice",
-                "Procurar algo embaixo da cama",
-                "0.3.6"
-            ],
-            [
-                "choice",
                 "Tentar sair da cama",
-                "0.3.7"
+                "0.3.6"
             ]
         ],
         "0.3.1":[
@@ -177,18 +172,13 @@
             ],
             [
                 "choice",
-                "Procurar algo embaixo da coberta",
+                "Procurar algo embaixo da cama",
                 "0.3.5"
             ],
             [
                 "choice",
-                "Procurar algo embaixo da cama",
-                "0.3.6"
-            ],
-            [
-                "choice",
                 "Tentar sair da cama",
-                "0.3.7"
+                "0.3.6"
             ]
         ],
         "0.3.1.1": [
@@ -196,7 +186,7 @@
                 "text",
                 "Eu pego o caderno. Ele parece ter uma textura dura e com o acabamento em couro, ou algo que se assemelha a isso. ",
                 "Ele parece ser relativamente pequeno, com não mais do que 100 páginas e, ao folhear por elas, parece haver coisas inscritas nelas. ", 
-                "Claro, eu não consegue lê-las. Continua escuro demais para isso. ",
+                "Claro, eu não consegue lê-las. Continua escuro demais para isso.",
                 "0.3.1.1"
             ],
             [
@@ -216,25 +206,20 @@
             ],
             [
                 "choice",
-                "Procurar algo embaixo da coberta",
+                "Procurar algo embaixo da cama",
                 "0.3.5"
             ],
             [
                 "choice",
-                "Procurar algo embaixo da cama",
-                "0.3.6"
-            ],
-            [
-                "choice",
                 "Tentar sair da cama",
-                "0.3.7"
+                "0.3.6"
             ]
         ],
         "0.3.2": [
             [
                 "text",
                 "Ao encostar na lanterna, eu percebo que envolta dela existe uma tecelagem de teia de aranha espessa. ",
-                "Ela não era usada há muito tempo. Eu a pego da cômoda, retirando as teias no caminho. ",
+                "Ela não era usada há muito tempo. Eu a pego da cômoda, retirando as teias no caminho.",
                 "0.3.2"
             ],
             [
@@ -259,18 +244,13 @@
             ],
             [
                 "choice",
-                "Procurar algo embaixo da coberta",
+                "Procurar algo embaixo da cama",
                 "0.3.5"
             ],
             [
                 "choice",
-                "Procurar algo embaixo da cama",
-                "0.3.6"
-            ],
-            [
-                "choice",
                 "Tentar sair da cama",
-                "0.3.7"
+                "0.3.6"
             ]
         ],
         "0.3.3": [
@@ -278,7 +258,7 @@
                 "text",
                 "Ao me aproximar do que quer que esteja pendurado na parede, percebo que estão pendurados 3 bonecos ou fantoches. ",
                 "Eu percebo que eles estão presos pelos braços e cabeça por pregos, todos pendurados na parede. ",
-                "Eles parecem ser fantoches com características humanoides. Obviamente, eu não consegue vê-los, está escuro. ",
+                "Eles parecem ser fantoches com características humanoides. Obviamente, eu não consegue vê-los, está escuro.",
                 "0.3.3"
             ],
             [
@@ -306,20 +286,16 @@
                 "Procurar algo embaixo dos travesseiros",
                 "0.3.4"
             ],
+
             [
                 "choice",
-                "Procurar algo embaixo da coberta",
+                "Procurar algo embaixo da cama",
                 "0.3.5"
             ],
             [
                 "choice",
-                "Procurar algo embaixo da cama",
-                "0.3.6"
-            ],
-            [
-                "choice",
                 "Tentar sair da cama",
-                "0.3.7"
+                "0.3.6"
             ]
         ],
         "0.3.4":[
@@ -327,7 +303,7 @@
                 "text",
                 "Passando a mão direita por debaixo do travesseiro em que eu estava deitada, não encontro coisa alguma. ",
                 "Ao colocar a mão sob o outro travesseiro, percebo uma protuberância dentro dele, algo com uma ponta bastante afiada. ",
-                "Passei a minha mão sobre e percebi que era uma tesoura de costura. Uma boa arma, diga-se de passagem. ",
+                "Passei a minha mão sobre e percebi que era uma tesoura de costura. Uma boa arma, diga-se de passagem.",
                 "0.3.4"
             ],
             [
@@ -350,34 +326,29 @@
                 "Verificar a coisa pendurada na parede",
                 "0.3.3"
             ],
-            [
-                "choice",
-                "Procurar algo embaixo da coberta",
-                "0.3.5"
-            ],
-            [
-                "choice",
-                "Procurar algo embaixo da cama",
-                "0.3.6"
-            ],
+
             [
                 "choice",
                 "Tentar sair da cama",
-                "0.3.7"
+                "0.3.6"
             ]
         ],
-        "0.3.5":[
+        "0.3.5": [
             [
                 "text",
-                "Ao tatear abaixo da coberta, eu não consigo encontrar nada que pareça chamar a minha atenção. ",
-                "Apenas, ao chegar perto do pé menor esquerdo da cama, percebe-se que é nela em que está presa a miha corrente, presa a parte inferior da cama. ",
-                "É uma cama antiga, e, por consequência, o pé talvez seja fraco. Pode ser que seja possível quebrar ele e se libertar.",
+                "Embaixo da minha cama, há uma caixa de papelão que parece conter algumas coisas dentro. Eu percebo que as coisas dentro da caixa parecem brinquedos. ",
+                "Parece haver, ao meu alcance, um baldinho em formato de castelo de areia e uma bola de vôlei.",
                 "0.3.5"
             ],
             [
                 "choice",
-                "Tentar quebrar o pé da cama com a mão",
+                "Pegar o baldinho de castelo",
                 "0.3.5.1"
+            ],
+            [
+                "choice",
+                "Pegar a bola de vôlei",
+                "0.3.5.2"
             ],
             [
                 "choice",
@@ -399,98 +370,30 @@
                 "Procurar algo embaixo dos travesseiros",
                 "0.3.4"
             ],
-            [
-                "choice",
-                "Procurar algo embaixo da cama",
-                "0.3.6"
-            ],
+
             [
                 "choice",
                 "Tentar sair da cama",
-                "0.3.7"
+                "0.3.6"
             ]
         ],
         "0.3.6": [
             [
                 "text",
-                "Embaixo da minha cama, há uma caixa de papelão que parece conter algumas coisas dentro. ",
-                "Eu percebe que as coisas dentro da caixa parecem brinquedos. ",
-                "Parece haver, ao meu alcance, uma espada de plástico, um baldinho em formato de castelo de areia, uma pá de plástico e uma bola de vôlei. ",
-                "0.3.6"
-            ],
-            [
-                "choice",
-                "Pegar a espada de plástico",
-                "0.3.6.1"
-            ],
-            [
-                "choice",
-                "Pegar o baldinho de castelo",
-                "0.3.6.1"
-            ],
-            [
-                "choice",
-                "Pegar a pá de plástico",
-                "0.3.6.1"
-            ],
-            [
-                "choice",
-                "Pegar a bola de vôlei",
-                "0.3.6.1"
-            ],
-            [
-                "choice",
-                "Tentar levantar a caixa",
-                "0.3.6.1"
-            ],
-            [
-                "choice",
-                "Procurar algo dentro da escrivaninha",
-                "0.3.1"
-            ],
-            [
-                "choice",
-                "Pegar a lanterna",
-                "0.3.2"
-            ],
-            [
-                "choice",
-                "Verificar a coisa pendurada na parede",
-                "0.3.3"
-            ],
-            [
-                "choice",
-                "Procurar algo embaixo dos travesseiros",
-                "0.3.4"
-            ],
-            [
-                "choice",
-                "Procurar algo embaixo da coberta",
-                "0.3.5"
-            ],
-            [
-                "choice",
-                "Tentar sair da cama",
-                "0.3.7"
-            ]
-        ],
-        "0.3.7": [
-            [
-                "text",
                 "Eu me posiciona de lado, sentada à beira da cama. Me levanto lentamente, tateando sobre tudo para entender melhor os meus arredores. ",
                 "Ao fazer isso, eu dou de cara com alguém. Eu encosta em alguém. Alguém gelado. Ele está de pé. Parece que sempre esteve aqui. ",
-                "Isso não é humano. É feito de algum material como plástico ou borracha, talvez seja um manequim? ",
-                "0.3.7"
+                "Isso não é humano. É feito de algum material como plástico ou borracha, talvez seja um manequim?",
+                "0.3.6"
             ],
             [
                 "choice",
                 "Vasculhar o manequim",
-                "0.3.7.1"
+                "0.3.6.1"
             ],
             [
                 "choice",
                 "Derrubar o manequim no chão",
-                "0.3.7.2"
+                "0.3.6.2"
             ],
             [
                 "choice",
@@ -514,13 +417,8 @@
             ],
             [
                 "choice",
-                "Procurar algo embaixo da coberta",
-                "0.3.5"
-            ],
-            [
-                "choice",
                 "Procurar algo embaixo da cama",
-                "0.3.6"
+                "0.3.5"
             ]
         ]
     },
@@ -532,7 +430,7 @@
                 "O ar úmido da floresta ao meu redor invade o meu nariz. Havia um certo odor de grama molhada. ",
                 "Assim como no quarto, era muito escuro. Pelo menos, a luz da lua ilumina um pouco a volta. ",
                 "Os barulhos que eu estava ouvindo vinham de todos os lugares. ",
-                "Pássaros, de piados mais variados, à esquerda, outros à direita e, ainda, à frente. Corujas à frente e à direita. Galhos e árvores retorcendo envolta. "
+                "Pássaros, de piados mais variados, à esquerda, outros à direita e, ainda, à frente. Corujas à frente e à direita. Galhos e árvores retorcendo envolta."
             ],
             [
                 "choice",

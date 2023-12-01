@@ -15,7 +15,6 @@ export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartO
 
     const initializeDialogText = (documentClass, jsonText, withUnderline, speed) => {
         clearInterval(animationInterval);
-
         const sentenceElement = document.querySelector(documentClass);
         let offset = 0;
 
@@ -40,10 +39,10 @@ export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartO
 
 
     const blinkUnderlineEffectText = (documentText) => {
-        const sentenceElement = document.querySelector(documentText);
         if (!(isWaitingToFinishWriting)) {
+            const sentenceElement = document.querySelector(documentText);
             clearTimeout(blinkTimeout);
-            setIsWaitingToFinishWriting(true);
+            setIsWaitingToFinishWriting((prev) => !prev);
 
             const lastChar = sentenceElement.innerHTML.charAt(sentenceElement.innerHTML.length - 1);
             if (lastChar === "_") {
@@ -52,22 +51,32 @@ export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartO
                 sentenceElement.innerHTML += "_";
             }
             blinkTimeout = setTimeout(() => {
-                setIsWaitingToFinishWriting(false)
+                setIsWaitingToFinishWriting((prev) => !prev);
             }, 750);
         }
     }
 
     useEffect(() => {
-        if (document.querySelector('.dialog_text_text_container').innerHTML !== text) {
-            initializeDialogText('.dialog_text_text_container', text, true, 30);
+        setIsFinishedWriting(false);
+        const textContainerHtml = document.querySelector('.dialog_text_text_container').innerHTML;
+        if (textContainerHtml !== text) {
+            document.querySelector('.dialog_text_text_container').innerHTML = "";
+            initializeDialogText('.dialog_text_text_container', text, true, 10);
         }
-    }, [whichPartOfChapter, text])
+    }, [text]);
 
     useEffect(() => {
         if (isFinishedWriting) {
             blinkUnderlineEffectText('.dialog_text_text_container');
         }
-    }, [isFinishedWriting, isWaitingToFinishWriting, whichPartOfChapter, text])
+    }, [isFinishedWriting, isWaitingToFinishWriting, text]);
+
+    useEffect(() => {
+        return () => {
+            clearInterval(animationInterval);
+            clearTimeout(blinkTimeout);
+        };
+    }, []);
 
     return (<>
         <div className='dialog_text_container'>
@@ -77,11 +86,13 @@ export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartO
             <div className='dialog_text_content'>
                 <div className='dialog_text_text_container' />
                 <div className='dialog_text_choices_container'>
-                    {isFinishedWriting &&
+                    {(isFinishedWriting &&
+                        (document.querySelector('.dialog_text_text_container').innerHTML === text ||
+                            document.querySelector('.dialog_text_text_container').innerHTML === text + "_")) &&
                         choices.map((choice, index) => {
                             return (<ChoiceButton key={index} id={choice[1]} text={choice[0]} timeoutTime={index}
                                 whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter}
-                                setIsFinishedWriting={setIsFinishedWriting} />);
+                                isFinishedWriting={isFinishedWriting} />);
                         })
                     }
                 </div>

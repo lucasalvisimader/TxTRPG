@@ -49,7 +49,23 @@ export const ChapterOne = () => {
 
     const setGameChoices = () => {
         setChoices([]);
+        let events = localStorage.getItem("events");
         json.chapter_one[whichPartOfChapter].forEach(choice => {
+            if (events) {
+                String.toString(events);
+                let cleanedEvents = events.split(",");
+                console.log(cleanedEvents)
+                for(let i = 0; i < cleanedEvents.length; i++) {
+                        console.log(choice[2])
+                        console.log(cleanedEvents[i])
+                        console.log(events[i] === choice[2]);
+                        console.log(choice[1].includes("Pegar"));
+                        console.log(events[i] === choice[2] && choice[1].includes("Pegar"))
+                        if (cleanedEvents[i] === choice[2] && choice[1].includes("Pegar")) {
+                            return;
+                        }
+                }
+            }
             findChoice(choice)
         });
     }
