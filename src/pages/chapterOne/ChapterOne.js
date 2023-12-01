@@ -60,8 +60,12 @@ export const ChapterOne = () => {
                         console.log(cleanedEvents[i])
                         console.log(events[i] === choice[2]);
                         console.log(choice[1].includes("Pegar"));
-                        console.log(events[i] === choice[2] && choice[1].includes("Pegar"))
-                        if (cleanedEvents[i] === choice[2] && choice[1].includes("Pegar")) {
+                        console.log(events[i] === choice[2] 
+                            // && choice[1].includes("Pegar")
+                            )
+                        if (cleanedEvents[i] === choice[2] 
+                            // && choice[1].includes("Pegar")
+                            ) {
                             return;
                         }
                 }
