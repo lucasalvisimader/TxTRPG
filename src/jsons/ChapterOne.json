@@ -1,29 +1,83 @@
 {
     "chapter_one": {
         "title": "Capítulo 1 - Bem-vinda ao lar",
+        "subtitle": "Morte. Vida. Morte.",
         "0": [
             [
                 "text",
-                "Abro meus olhos, mas não enxergo nada. Nada que eu consiga entender. Quem são vocês? Por que me olham? ",
-                "O que querem? Não me lembro de nada. Não lembro do meu nome. Que lugar é esse? O que fizeram comigo? Não possuo forças para falar. O que vocês fizeram comigo? ",
-                "Os estranhos começam a sair do quarto, um a um, e eu continuo deitada, sem conseguir me mexer. ",
-                "Súbito, percebo que agora consigo movimentar os meus braços. Está muito escuro. A minha perna está presa.",
+                "A cama está fria. Você está com frio. Isso o incomoda.",
                 "0"
             ],
             [
                 "choice",
-                "Continuar dormindo",
-                "0.1"
+                "Você abre os olhos",
+                "1"
+            ]
+        ],
+        "1": [
+            [
+                "text",
+                "Você abre os olhos. Está bem escuro.",
+                "A única luz discernível do ambiente vêm de uma janela à sua esquerda.",
+                "Uma luz bem leve.",
+                "1"
             ],
             [
                 "choice",
-                "Tentar soltar a perna",
-                "0.2"
+                "Você olha ao redor",
+                "2"
+            ]
+        ],
+        "2": [
+            [
+                "text",
+                "Acostumando os olhos, você olha ao redor. Você está em uma casa. Ou um prédio. Você não tem certeza.",
+                "Além da janela que emite luz, você percebe que o chão é metálico. Reluz a luz da janela.",
+                "Você sabe é que você está deitado em cima de uma pequena caixa. Parece ser de madeira.",
+                "2"
             ],
             [
                 "choice",
-                "Tatear ao redor",
-                "0.3"
+                "Você se levanta",
+                "3"
+            ]
+        ],
+        "3" : [
+            [
+                "text",
+                "Com muito esforço, você se levanta. Parece que você estava dormindo a séculos. Suas pernas estão doloridas.",
+                "Agora levantado, você percebe que existe uma porta à direita do quarto, que não era possível ver antes.",
+                "3"
+            ],
+            [
+                "choice",
+                "Você investiga a janela",
+                "3.1"
+            ],
+            [
+                "choice",
+                "Você investiga a porta",
+                "3.2"
+            ],
+            [
+                "choice",
+                "Você investiga a caixa",
+                "3.3"
+            ]
+        ],
+        "3.1": [
+            [
+
+            ]
+        ],
+        "3.2": [
+            [
+                
+            ]
+        ],
+        "3.3": [
+            [
+                
             ]
         ]
     }
