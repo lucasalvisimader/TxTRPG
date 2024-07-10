@@ -5,7 +5,8 @@
         "0": [
             [
                 "text",
-                "A cama está fria. Você está com frio. Isso o incomoda.",
+                "A cama está fria. Você sente suas costas frias. Suas mãos e pés também estão frios. Você está com frio.",
+                "Isso o incomoda.",
                 "0"
             ],
             [
@@ -17,9 +18,9 @@
         "1": [
             [
                 "text",
-                "Você abre os olhos. Está bem escuro.",
-                "A única luz discernível do ambiente vêm de uma janela à sua esquerda.",
-                "Uma luz bem leve.",
+                "Você vagarosamente abre os olhos. Parece que você quase se esqueceu de como fazê-lo. Está bem escuro.",
+                "A única luz discernível do ambiente vêm da sua esquerda.",
+                "Uma luz bem tênue e fraca.",
                 "1"
             ],
             [
@@ -31,9 +32,9 @@
         "2": [
             [
                 "text",
-                "Acostumando os olhos, você olha ao redor. Você está em uma casa. Ou um prédio. Você não tem certeza.",
-                "Além da janela que emite luz, você percebe que o chão é metálico. Reluz a luz da janela.",
-                "Você sabe é que você está deitado em cima de uma pequena caixa. Parece ser de madeira.",
+                "Acostumando os olhos, você olha ao redor. Você está em um local fechado. Pode ser uma casa, um prédio, um estoque. Você não tem certeza.",
+                "Você vê que a luz amarelada vem de uma pequena janela. A luz revela a você que o chão é metálico. Ele reluz fortemente à luz proveniente.",
+                "Você sabe é que você está deitado em cima de um pequeno bloco retangular. Parece ser de metal como o chão.",
                 "2"
             ],
             [
@@ -45,8 +46,9 @@
         "3" : [
             [
                 "text",
-                "Com muito esforço, você se levanta. Parece que você estava dormindo a séculos. Suas pernas estão doloridas.",
-                "Agora levantado, você percebe que existe uma porta à direita do quarto, que não era possível ver antes.",
+                "Com muito esforço, você se levanta. Parece que você estava dormindo a séculos. Suas pernas estão formigando e doloridas.",
+                "Agora levantado, você percebe que existe uma abertura à direita do quarto, que não era possível ver antes.",
+                "Ela está na completa penumbra. A luz não chega nela.",
                 "3"
             ],
             [
@@ -56,29 +58,124 @@
             ],
             [
                 "choice",
-                "Você investiga a porta",
+                "Você investiga a abertura",
                 "3.2"
             ],
             [
                 "choice",
-                "Você investiga a caixa",
+                "Você investiga o bloco",
                 "3.3"
             ]
         ],
-        "3.1": [
-            [
+            "3.1": [
+                [
+                    "text",
+                    "Você vai lentamente até a janela, se acostumando ainda a andar novamente.",
+                    "Ao chegar perto, você repara que ela não possui vidros, é apenas uma abertura na parede. Além disso, uma moldura metálica a divide em duas",
+                    "Olhando através dela, você percebe que a luz vinha de uma vela posicionada do lado de fora da janela, à esquerda.",
+                    "Mas a existência da vela do lado de fora não é a coisa mais impressionante.",
+                    "O ambiente do lado de fora é impossível. Ele é um complexo completamente feito de metal.",
+                    "Você olha de um lado ao outro, tentando calcular o tamanho do local. Você não consegue. Tudo o que você vê são corredores levando a corredores levando a mais corredores.",
+                    "O lugar inteiro é enorme. Grotescamente gigante. Parece até mesmo ser infinito, mas você não saberia dizer.",
+                    "O complexo inteiro é muito escuro para a vela conseguir suportar. Ela parece que é a única fonte de luz ao redor.",
+                    "Mesmo assim, você acredita que os corredores mais longínquos estão a mais de 3 quilômetros de distância. As paredes parecem infinitamente altas.",
+                    "Esse é um lugar impossível. É um lugar que não existe. Não poderia existir.",
+                    "Você sente não deveria estar aqui.",
+                    "3.1"
+                ],
+                [
+                    "choice",
+                    "Você tenta passar pela janela",
+                    "3.1.1"
+                ],
+                [
+                    "choice",
+                    "Você tenta agarrar a vela",
+                    "3.1.2"
+                ],
+                [
+                    "choice",
+                    "Você investiga a abertura",
+                    "3.2"
+                ],
+                [
+                    "choice",
+                    "Você investiga o bloco",
+                    "3.3"
+                ]
+            ],
 
+                "3.1.1": [
+                    [
+                        "text",
+                        "Você tenta atravessar janela, mas percebe rapidamente que ela é muito pequena.",
+                        "Ainda bem. Você olha para baixo e percebe o quão alto está. Parece a visão que você teria de cima de um prédio de 60 andares.",
+                        "Você repensa essa rota pela janela.",
+                        "3.1.1"
+                    ],
+                    [
+                        "choice",
+                        "Você tenta sair pela janela",
+                        "3.1.1"
+                    ],
+                    [
+                        "choice",
+                        "Você tenta agarrar a vela",
+                        "3.1.2"
+                    ],
+                    [
+                        "choice",
+                        "Você investiga a abertura",
+                        "3.2"
+                    ],
+                    [
+                        "choice",
+                        "Você investiga o bloco",
+                        "3.3"
+                    ]
+
+                ],
+                "3.1.2": [
+                    [
+                        "text",
+                        "Você estica por completo o seu braço direito. Está bem longe. Muito longe para você alcançar.",
+                        "3.1.2"
+                    ],
+                    [
+                        "choice",
+                        "Você tenta sair pela janela",
+                        "3.1.1"
+                    ],
+                    [
+                        "choice",
+                        "Você tenta agarrar a vela",
+                        "3.1.2"
+                    ],
+                    [
+                        "choice",
+                        "Você investiga a abertura",
+                        "3.2"
+                    ],
+                    [
+                        "choice",
+                        "Você investiga o bloco",
+                        "3.3"
+                    ]
+                ],
+
+            "3.2": [
+                [
+                    "text",
+                    "",
+                    "3.2"
+                ]
+            ],
+            "3.3": [
+                [
+                    "text",
+                    "",
+                    "3.3"
+                ]
             ]
-        ],
-        "3.2": [
-            [
-                
-            ]
-        ],
-        "3.3": [
-            [
-                
-            ]
-        ]
     }
 }
