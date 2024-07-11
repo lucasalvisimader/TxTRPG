@@ -15,6 +15,7 @@ export const ChapterOne = () => {
     const [text, setText] = useState("");
     const [choices, setChoices] = useState([]);
     const [whichPartOfChapter, setWhichPartOfChapter] = useState("0");
+    const [isDeathScreen, setIsDeathScreen] = useState(false);
 
     const findChoice = (choice) => {
         if (choice[0] === "choice") {
@@ -51,25 +52,18 @@ export const ChapterOne = () => {
         setChoices([]);
         let events = localStorage.getItem("events");
         json.chapter_one[whichPartOfChapter].forEach(choice => {
-            if (events) {
-                String.toString(events);
-                let cleanedEvents = events.split(",");
-                console.log(cleanedEvents)
-                for(let i = 0; i < cleanedEvents.length; i++) {
-                        console.log(choice[2])
-                        console.log(cleanedEvents[i])
-                        console.log(events[i] === choice[2]);
-                        console.log(choice[1].includes("Pegar"));
-                        console.log(events[i] === choice[2] 
-                            // && choice[1].includes("Pegar")
-                            )
-                        if (cleanedEvents[i] === choice[2] 
-                            // && choice[1].includes("Pegar")
-                            ) {
-                            return;
-                        }
-                }
-            }
+            // if (events) {
+            //     String.toString(events);
+            //     let cleanedEvents = events.split(",");
+            //     for(let i = 0; i < cleanedEvents.length; i++) {
+            //             console.log(choice[2])
+            //             if (cleanedEvents[i] === choice[2] 
+
+            //                 ) {
+            //                 return;
+            //             }
+            //     }
+            // }
             findChoice(choice)
         });
     }
@@ -81,11 +75,16 @@ export const ChapterOne = () => {
     useEffect(() => {
         setGameText();
         setGameChoices();
+        if (whichPartOfChapter === "3.2.1") {
+            setIsDeathScreen(true);
+        } else {
+            setIsDeathScreen(false);
+        }
     }, [whichPartOfChapter]);
 
     return (<>
         <div className='chapter_one_container'>
-            <Dialog title={title} text={text} choices={choices}
+            <Dialog title={title} text={text} choices={choices} isDeathScreen={isDeathScreen}
                 whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter} />
         </div>
     </>);

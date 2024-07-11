@@ -34,7 +34,7 @@
                 "text",
                 "Acostumando os olhos, você olha ao redor. Você está em um local fechado. Pode ser uma casa, um prédio, um estoque. Você não tem certeza.",
                 "Você vê que a luz amarelada vem de uma pequena janela. A luz revela a você que o chão é metálico. Ele reluz fortemente à luz proveniente.",
-                "Você sabe é que você está deitado em cima de um pequeno bloco retangular. Parece ser de metal como o chão.",
+                "O que você sabe é que você está deitado em cima de um pequeno bloco retangular. Parece ser de metal como o chão.",
                 "2"
             ],
             [
@@ -166,10 +166,44 @@
             "3.2": [
                 [
                     "text",
-                    "Você chega perto da abertura na parede. Uma leve brisa vem da abertura.",
-                    "Chegando mais perto, você percebe que as paredes metálicas parecem ter pequenas rachaduras.",
-                    "Ao chegar nela, você percebe que está muito escura para você ver qualquer coisa muito além das paredes da sala em que você está.",
+                    "Você chega perto da abertura na parede. Uma leve brisa vem dela. Você não consegue ouvir nenhum barulho.",
+                    "Chegando mais perto, você percebe que as paredes metálicas parecem ter pequenas rachaduras, mas está muito escura para você ver qualquer outra coisa.",
+                    "Você não quer ir em uma abertura de uma parede na completamente na escuridão, né?",
                     "3.2"
+                ],
+                [
+                    "choice",
+                    "Você atravessa a abertura na escuridão",
+                    "3.2.1"
+                ],
+                [
+                    "choice",
+                    "Você investiga a janela",
+                    "3.1"
+                ],
+                [
+                    "choice",
+                    "Você investiga o bloco",
+                    "3.3"
+                ]
+            ],
+            "3.2.1": [
+                [
+                "text",
+                "Você se aproxima da abertura. A brisa se transformou em vento. Mais forte, mais rápido.",
+                "Você dá o primeiro passo para a abertura. O seu pé não alcança o chão.",
+                "Você tenta voltar, se agarrar na parede, fazer qualquer coisa que impeça a queda. Nada funciona. Você está em queda livre.",
+                "É nesse momento que a sua vida estar passando pelos seus olhos. O famoso flashback. Mas nada vem.",
+                "Nesses últimos momentos, você percebe que nem sabe quem é você. Você não se lembra de nada, nem de você mesmo.",
+                "Você continuou caindo. Por 5 segundos. 10 segundos. 30 segundos. 1 minuto inteiro.",
+                "Depois de 2 minutos, você percebe que uma luz distante começou a piscar.",
+                "Passados mais 10 segundos, você percebe que a luz está piscando cada vez mais rápido.",
+                "Em algum momento, ela ficou intermitente.",
+                "...",
+                "...",
+                "...",
+                "Você es̶̪̓t̶̼̱̜͎͌͊͌̑á̷̝͎̹̐̋͊͠ m̵̡̮̖̲̬̟̰̫̓̈́̆̈̀͑͋̌͆̿́̈́̄́͘͜͠͝ö̷̡̢̯̫͎͉̪̲̦͖̰̻̣̮͉̟͚̘̜́͐͗͜͠͠r̵͖͌̚t̸̢̡̡̡̼͔͕̳̹̻̠͔̜̼̠̒̃̈́́̈́̂̓̈́̒͆̈́͘͘͝͝ȍ̸̢̨̡͉̘̤̣̱̘͉̞̪̱̻̗̰͍͙̟͎̙͊̈́ͅ ",
+                "3.2.1"
                 ]
             ],
             "3.3": [

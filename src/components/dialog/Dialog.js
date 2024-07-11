@@ -1,22 +1,41 @@
 // styles
 import './Dialog.css';
 
-// components
-import { ChoiceButton } from '../choiceButton/ChoiceButton';
-
 // react
 import { useEffect, useState } from 'react';
 
-export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartOfChapter }) => {
+// components
+import { ChoiceButton } from '../choiceButton/ChoiceButton';
+
+// json
+import deathJson from '../../jsons/BuggedDeath.json';
+
+export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter, setWhichPartOfChapter }) => {
     const [isWaitingToFinishWriting, setIsWaitingToFinishWriting] = useState(false);
     const [isFinishedWriting, setIsFinishedWriting] = useState(false);
+    const [isLighthouseEffectActive, setIsLighthouseEffectActive] = useState(false);
     let animationInterval;
     let blinkTimeout;
 
-    const initializeDialogText = (documentClass, jsonText, withUnderline, speed) => {
+    const initializeDialogText = async (documentClass, jsonText, withUnderline, speed) => {
         clearInterval(animationInterval);
         const sentenceElement = document.querySelector(documentClass);
         let offset = 0;
+
+        if (isDeathScreen && speed === 0) {
+            setIsLighthouseEffectActive(true);
+        } else {
+            setIsLighthouseEffectActive(false);
+        }
+
+        if (speed === 0) {
+            sentenceElement.innerHTML = jsonText;
+            if (withUnderline) {
+                sentenceElement.innerHTML += "_";
+            }
+            setIsFinishedWriting(true);
+            return;
+        }
 
         const updateSentence = () => {
             let finalText = jsonText.substring(0, offset);
@@ -32,11 +51,24 @@ export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartO
                 updateSentence();
             } else if (!(isFinishedWriting)) {
                 setIsFinishedWriting(true);
+                clearInterval(animationInterval);
             }
         }
         animationInterval = setInterval(handleAnimation, speed);
-    }
 
+        return new Promise(resolve => {
+            const checkIfFinished = () => {
+                if (offset >= jsonText.length) {
+                    clearInterval(animationInterval);
+                    resolve();
+                }
+            }
+            animationInterval = setInterval(() => {
+                handleAnimation();
+                checkIfFinished();
+            }, speed);
+        });
+    }
 
     const blinkUnderlineEffectText = (documentText) => {
         if (!(isWaitingToFinishWriting)) {
@@ -57,12 +89,27 @@ export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartO
     }
 
     useEffect(() => {
-        setIsFinishedWriting(false);
-        const textContainerHtml = document.querySelector('.dialog_text_text_container').innerHTML;
-        if (textContainerHtml !== text) {
-            document.querySelector('.dialog_text_text_container').innerHTML = "";
-            initializeDialogText('.dialog_text_text_container', text, true, 10);
+        const fetchData = async () => {
+            setIsFinishedWriting(false);
+            const textContainerHtml = document.querySelector('.dialog_text_text_container').innerHTML;
+            if (textContainerHtml !== text) {
+                document.querySelector('.dialog_text_text_container').innerHTML = "";
+                await initializeDialogText('.dialog_text_text_container', text, false, 50);
+                if (isDeathScreen) {
+                    let deathText = "";
+                    console.log(deathJson)
+                    deathJson.fastDeath.forEach(lineText => {
+                        if (deathText !== "") {
+                            deathText += "<br>";
+                        }
+                        deathText += lineText;
+                    });
+                    await initializeDialogText('.dialog_text_text_container', deathText, false, 0);
+                    await initializeDialogText('.dialog_text_text_container', 'Vivo.', true, 0);
+                }
+            }
         }
+        fetchData();
     }, [text]);
 
     useEffect(() => {
@@ -79,7 +126,7 @@ export const Dialog = ({ title, text, choices, whichPartOfChapter, setWhichPartO
     }, []);
 
     return (<>
-        <div className='dialog_text_container'>
+        <div className={`dialog_text_container ${isLighthouseEffectActive ? 'lighthouse-effect' : ''}`}>
             <div className='dialog_text_title_container'>
                 {title}
             </div>

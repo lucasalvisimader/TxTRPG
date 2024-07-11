@@ -14,13 +14,10 @@ export const ChoiceButton = ({ id, text, timeoutTime, whichPartOfChapter, setWhi
             let eventsBefore = Array.of(localStorage.getItem("events"));
             let eventsAfter = [];
             for (let i = 0; i < eventsBefore.length; i++) {
-                console.log(eventsBefore)
-                console.log(eventsBefore.length)
                 eventsAfter.push(eventsBefore[i]);
                 if (i === eventsBefore.length - 1) {
                     eventsAfter.push(id);
                 }
-                console.log(eventsAfter)
             }
             localStorage.setItem("events", eventsAfter)
         } else {

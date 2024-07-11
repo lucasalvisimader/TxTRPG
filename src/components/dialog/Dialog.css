@@ -43,3 +43,14 @@
     margin-left: 10%;
     margin-right: 10%;
 }
+
+@keyframes lighthouseEffect {
+    0% { background-position: 200%; }
+    100% { background-position: -200%; }
+}
+
+.dialog_text_container.lighthouse-effect {
+    background: linear-gradient(90deg, var(--black) 0%, var(--black) 45%, var(--lightHouseBGInicial) 55%, var(--lightHouseBGFinal) 57%, var(--lightHouseBGInicial) 58%, var(--black) 60%);
+    background-size: 200%;
+    animation: lighthouseEffect 4s infinite linear;
+}
