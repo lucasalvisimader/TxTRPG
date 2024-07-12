@@ -49,8 +49,26 @@
     100% { background-position: -200%; }
 }
 
-.dialog_text_container.lighthouse-effect {
+.dialog_text_container.lighthouse_effect_slow {
+    background: linear-gradient(90deg, var(--black) 0%, var(--black) 45%, var(--lightHouseBGInicial) 55%, var(--lightHouseBGFinal) 57%, var(--lightHouseBGInicial) 58%, var(--black) 60%);
+    background-size: 200%;
+    animation: lighthouseEffect 8s infinite linear;
+}
+
+.dialog_text_container.lighthouse_effect_normal {
     background: linear-gradient(90deg, var(--black) 0%, var(--black) 45%, var(--lightHouseBGInicial) 55%, var(--lightHouseBGFinal) 57%, var(--lightHouseBGInicial) 58%, var(--black) 60%);
     background-size: 200%;
     animation: lighthouseEffect 4s infinite linear;
+}
+
+.dialog_text_container.lighthouse_effect_fast {
+    background: linear-gradient(90deg, var(--black) 0%, var(--black) 45%, var(--lightHouseBGInicial) 55%, var(--lightHouseBGFinal) 57%, var(--lightHouseBGInicial) 58%, var(--black) 60%);
+    background-size: 200%;
+    animation: lighthouseEffect 2s infinite linear;
+}
+
+.dialog_text_container.lighthouse_effect_faster {
+    background: linear-gradient(90deg, var(--black) 0%, var(--black) 45%, var(--lightHouseBGInicial) 55%, var(--lightHouseBGFinal) 57%, var(--lightHouseBGInicial) 58%, var(--black) 60%);
+    background-size: 200%;
+    animation: lighthouseEffect 1s infinite linear;
 }

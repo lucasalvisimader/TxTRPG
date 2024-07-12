@@ -8,24 +8,32 @@ import { useEffect, useState } from 'react';
 import { ChoiceButton } from '../choiceButton/ChoiceButton';
 
 // json
-import deathJson from '../../jsons/BuggedDeath.json';
+import deathJson from '../../jsons/DeathText.json';
 
 export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter, setWhichPartOfChapter }) => {
     const [isWaitingToFinishWriting, setIsWaitingToFinishWriting] = useState(false);
     const [isFinishedWriting, setIsFinishedWriting] = useState(false);
-    const [isLighthouseEffectActive, setIsLighthouseEffectActive] = useState(false);
+    const [lighthouseEffectClass, setLighthouseEffectClass] = useState('');
     let animationInterval;
     let blinkTimeout;
 
-    const initializeDialogText = async (documentClass, jsonText, withUnderline, speed) => {
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    const initializeDialogText = async (documentClass, jsonText, withUnderline, speed, typeScreen) => {
         clearInterval(animationInterval);
         const sentenceElement = document.querySelector(documentClass);
         let offset = 0;
 
-        if (isDeathScreen && speed === 0) {
-            setIsLighthouseEffectActive(true);
+        if (isDeathScreen) {
+            switch(typeScreen) {
+                case 0: setLighthouseEffectClass('lighthouse_effect_slow'); break;
+                case 1: setLighthouseEffectClass('lighthouse_effect_normal'); break;
+                case 2: setLighthouseEffectClass('lighthouse_effect_fast'); break;
+                case 3: setLighthouseEffectClass('lighthouse_effect_faster'); break;
+                default: setLighthouseEffectClass('');
+            }
         } else {
-            setIsLighthouseEffectActive(false);
+            setLighthouseEffectClass('');
         }
 
         if (speed === 0) {
@@ -94,18 +102,37 @@ export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter
             const textContainerHtml = document.querySelector('.dialog_text_text_container').innerHTML;
             if (textContainerHtml !== text) {
                 document.querySelector('.dialog_text_text_container').innerHTML = "";
-                await initializeDialogText('.dialog_text_text_container', text, false, 50);
                 if (isDeathScreen) {
+                    await initializeDialogText('.dialog_text_text_container', text, false, 70, 0);
                     let deathText = "";
-                    console.log(deathJson)
+                    let waitingDotsText = "";
+                    let restartText = "";
                     deathJson.fastDeath.forEach(lineText => {
                         if (deathText !== "") {
                             deathText += "<br>";
                         }
                         deathText += lineText;
                     });
-                    await initializeDialogText('.dialog_text_text_container', deathText, false, 0);
-                    await initializeDialogText('.dialog_text_text_container', 'Vivo.', true, 0);
+                    deathJson.waitingDots.forEach(lineText => {
+                        if (waitingDotsText !== "") {
+                            waitingDotsText += "<br>";
+                        }
+                        waitingDotsText += lineText;
+                    });
+                    deathJson.restart.forEach(lineText => {
+                        if (restartText !== "") {
+                            restartText += "<br>";
+                        }
+                        restartText += lineText;
+                    });
+                    await delay(3000);
+                    await initializeDialogText('.dialog_text_text_container', deathText, false, 70, 1);
+                    await delay(3000);
+                    await initializeDialogText('.dialog_text_text_container', waitingDotsText, false, 300, 2);
+                    await delay(1000);
+                    await initializeDialogText('.dialog_text_text_container', restartText, false, 70, 3);
+                } else {
+                    await initializeDialogText('.dialog_text_text_container', text, false, 70);
                 }
             }
         }
@@ -125,8 +152,8 @@ export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter
         };
     }, []);
 
-    return (<>
-        <div className={`dialog_text_container ${isLighthouseEffectActive ? 'lighthouse-effect' : ''}`}>
+    return (
+        <div className={`dialog_text_container ${lighthouseEffectClass}`}>
             <div className='dialog_text_title_container'>
                 {title}
             </div>
@@ -136,14 +163,14 @@ export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter
                     {(isFinishedWriting &&
                         (document.querySelector('.dialog_text_text_container').innerHTML === text ||
                             document.querySelector('.dialog_text_text_container').innerHTML === text + "_")) &&
-                        choices.map((choice, index) => {
-                            return (<ChoiceButton key={index} id={choice[1]} text={choice[0]} timeoutTime={index}
+                        choices.map((choice, index) => (
+                            <ChoiceButton key={index} id={choice[1]} text={choice[0]} timeoutTime={index}
                                 whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter}
-                                isFinishedWriting={isFinishedWriting} />);
-                        })
+                                isFinishedWriting={isFinishedWriting} />
+                        ))
                     }
                 </div>
             </div>
         </div>
-    </>);
+    );
 }

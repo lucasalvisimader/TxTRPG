@@ -1,0 +1,19 @@
+{
+    "fastDeath": [
+        "Você não foi morto imediatamente. Daqui a pouco vai estar. Você só consegue pensar no quanto dói.",
+        "A dor é extrema. Você está agonizando no chão, estará morto em alguns segundos.",
+        "Em algum momento, a luz ficou mais rápida. Mais rápida, Mais brilhante",
+        "Você deve ter feito uma boa poça de restos humanos no chão. O contraste do sangue com o metal é lindo."
+    ],
+    "waitingDots": [
+        ".........",
+        "..................",
+        "....................................",
+        "......................................................"
+    ],
+    "restart": [
+        "Você finalmente percebe a luz.",
+        "Impossível não vê-la, não?",
+        "Só me pergunto o por quê você ainda não m-"
+    ]
+}
