@@ -12,7 +12,7 @@ export const Home = () => {
     const startGame = () => {
         setIsFadingOut(true);
         setTimeout(() => {
-            navigate("/chapter-one");
+            navigate("/chapter-one-welcome-to-home");
         }, 2000);
     }
 

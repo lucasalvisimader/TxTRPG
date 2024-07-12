@@ -11,7 +11,6 @@ import { Dialog } from '../../components/dialog/Dialog';
 import json from '../../jsons/ChapterOne.json';
 
 export const ChapterOne = () => {
-    const [title, setTitle] = useState(json.chapter_one.title);
     const [text, setText] = useState("");
     const [choices, setChoices] = useState([]);
     const [whichPartOfChapter, setWhichPartOfChapter] = useState("0");
@@ -50,7 +49,7 @@ export const ChapterOne = () => {
 
     const setGameChoices = () => {
         setChoices([]);
-        let events = localStorage.getItem("events");
+        // let events = localStorage.getItem("events");
         json.chapter_one[whichPartOfChapter].forEach(choice => {
             // if (events) {
             //     String.toString(events);
@@ -84,7 +83,7 @@ export const ChapterOne = () => {
 
     return (<>
         <div className='chapter_one_container'>
-            <Dialog title={title} text={text} choices={choices} isDeathScreen={isDeathScreen}
+            <Dialog title={json.chapter_one.title} text={text} choices={choices} isDeathScreen={isDeathScreen}
                 whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter} />
         </div>
     </>);

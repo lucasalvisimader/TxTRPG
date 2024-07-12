@@ -9,7 +9,7 @@ export const ChoiceButton = ({ id, text, timeoutTime, whichPartOfChapter, setWhi
     const [textAfterTimeout, setTextAfterTimeout] = useState("");
 
     const handleChoiceButtonClick = () => {
-        setWhichPartOfChapter(id)
+        setWhichPartOfChapter(id);
         if (localStorage.getItem("events")) {
             let eventsBefore = Array.of(localStorage.getItem("events"));
             let eventsAfter = [];
