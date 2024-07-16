@@ -35,10 +35,10 @@ export const Home = () => {
             {!isFirstChapterFinished && (
                 <div className='home_start'>Continue
                     <button className='home_button' onClick={() => setIsMenuChaptersVisible(!isMenuChaptersVisible)}>Continue</button>
-                    {isMenuChaptersVisible && (
-                        <MenuChapters />
-                    )}
                 </div>
+            )}
+            {isMenuChaptersVisible && (
+                <MenuChapters />
             )}
             {isFadingOut && (
                 <div className="home_fade_out" />

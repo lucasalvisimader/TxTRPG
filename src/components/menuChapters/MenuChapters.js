@@ -1,16 +1,19 @@
 // css
-import { useEffect } from 'react';
+import { Button } from '@mui/material';
 import './MenuChapters.css';
 
 export const MenuChapters = () => {
 
-    useEffect(() => {
-        console.log("menuChapters")
-    }, [])
-
     return (<>
         <div className='menu_chapters_container'>
-
+            <Button variant="outlined" onClick={handleClickOpen}>
+                Open simple dialog
+            </Button>
+            <SimpleDialog
+                selectedValue={selectedValue}
+                open={open}
+                onClose={handleClose}
+            />
         </div>
     </>);
 }
