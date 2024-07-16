@@ -1,0 +1,12 @@
+.choices_button {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    font-size: 1rem;
+    margin: 7%;
+}
+
+.choices_button:hover {
+    color: var(--white-hover);
+}

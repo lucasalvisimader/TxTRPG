@@ -14,7 +14,7 @@
     animation: skew 1.5s infinite alternate;
 }
 
-.home_start_button {
+.home_button {
     background-color: transparent;
     color: var(--white);
     border: none;

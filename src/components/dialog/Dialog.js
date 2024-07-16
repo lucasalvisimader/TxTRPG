@@ -5,7 +5,7 @@ import './Dialog.css';
 import { useEffect, useState } from 'react';
 
 // components
-import { ChoiceButton } from '../choiceButton/ChoiceButton';
+import { Choices } from '../choices/Choices';
 
 // json
 import deathJson from '../../jsons/DeathText.json';
@@ -164,7 +164,7 @@ export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter
                         (document.querySelector('.dialog_text_text_container').innerHTML === text ||
                             document.querySelector('.dialog_text_text_container').innerHTML === text + "_")) &&
                         choices.map((choice, index) => (
-                            <ChoiceButton key={index} id={choice[1]} text={choice[0]} timeoutTime={index}
+                            <Choices key={index} id={choice[1]} text={choice[0]} timeoutTime={index}
                                 whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter}
                                 isFinishedWriting={isFinishedWriting} />
                         ))
