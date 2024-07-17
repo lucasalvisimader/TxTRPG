@@ -2,5 +2,30 @@
     height: 25%;
     width: 25%;
     position: absolute;
-    background-color: aliceblue;
+    background-color: var(--raisin-black);
+    color: var(--alice-blue);
+    box-shadow: 15px 15px var(--alice-blue);
+}
+
+.menu_chapters_buttons {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu_chapters_conatiner_appear_animation {
+    animation: left-to-right 1s;
+}
+
+@keyframes left-to-right {
+    from {
+        left: 200%;
+    }
+    to {
+        left: 38%;
+    }
 }

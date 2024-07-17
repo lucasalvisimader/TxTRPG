@@ -14,7 +14,7 @@ import Cookies from 'cookies-js';
 export const Home = () => {
     const navigate = useNavigate();
     const [isFadingOut, setIsFadingOut] = useState(false);
-    const whichChapter = Cookies.get('whichChapter')
+    const whichChapter = Cookies.get('whichChapter');
     const isFirstChapterFinished = !isNaN(whichChapter) && parseInt(whichChapter) >= 2;
     const [isMenuChaptersVisible, setIsMenuChaptersVisible] = useState(false);
 
@@ -27,12 +27,12 @@ export const Home = () => {
 
     return (<>
         <div className='home_container'>
-            {isFirstChapterFinished && (
+            {!isFirstChapterFinished && (
                 <div className='home_start'>Start
                     <button className='home_button' onClick={startGameDefault}>Start</button>
                 </div>
             )}
-            {!isFirstChapterFinished && (
+            {isFirstChapterFinished && (
                 <div className='home_start'>Continue
                     <button className='home_button' onClick={() => setIsMenuChaptersVisible(!isMenuChaptersVisible)}>Continue</button>
                 </div>
