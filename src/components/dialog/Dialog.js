@@ -46,7 +46,8 @@ export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter
         }
 
         const updateSentence = () => {
-            let finalText = jsonText.substring(0, offset);
+            let finalText = ">  ";
+            finalText += jsonText.substring(0, offset);
             if (withUnderline) {
                 finalText = finalText + "_";
             }
@@ -54,7 +55,7 @@ export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter
         }
 
         const handleAnimation = () => {
-            if (!(offset >= jsonText.length)) {
+            if (!(offset >= (jsonText.length + 3))) {
                 offset++;
                 updateSentence();
             } else if (!(isFinishedWriting)) {
@@ -66,7 +67,7 @@ export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter
 
         return new Promise(resolve => {
             const checkIfFinished = () => {
-                if (offset >= jsonText.length) {
+                if (offset >= (jsonText.length + 3)) {
                     clearInterval(animationInterval);
                     resolve();
                 }
@@ -161,8 +162,8 @@ export const Dialog = ({ title, text, choices, isDeathScreen, whichPartOfChapter
                 <div className='dialog_text_text_container' />
                 <div className='dialog_text_choices_container'>
                     {(isFinishedWriting &&
-                        (document.querySelector('.dialog_text_text_container').innerHTML === text ||
-                            document.querySelector('.dialog_text_text_container').innerHTML === text + "_")) &&
+                        (document.querySelector('.dialog_text_text_container').innerHTML === ("&gt;  " + text) ||
+                            document.querySelector('.dialog_text_text_container').innerHTML === ("&gt;  " + text + "_"))) &&
                         choices.map((choice, index) => (
                             <Choices key={index} id={choice[1]} text={choice[0]} timeoutTime={index}
                                 whichPartOfChapter={whichPartOfChapter} setWhichPartOfChapter={setWhichPartOfChapter}
