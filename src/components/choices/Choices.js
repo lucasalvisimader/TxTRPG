@@ -52,9 +52,9 @@ export const Choices = ({ id, text, timeoutTime, whichPartOfChapter, setWhichPar
 
     return (
         <div className='choices_container'>
-            <button className='choices_button' onClick={handleChoiceButtonClick}>
+            <span className='choices_button' onClick={handleChoiceButtonClick}>
                 {textAfterTimeout}
-            </button>
+            </span>
         </div>
     );
 }
