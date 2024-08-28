@@ -1,11 +1,9 @@
 // css
 import './Choices.css';
-
 // react
 import { useEffect, useState } from 'react';
 
-export const Choices = ({ id, text, timeoutTime, whichPartOfChapter, setWhichPartOfChapter, isFinishedWriting }) => {
-    const [isFinishedWritingChoice, setIsFinishedWritingChoice] = useState(0);
+export const Choices = ({ id, selectedChoiceIndex, setSelectedChoiceIndex, text, timeoutTime, whichPartOfChapter, setWhichPartOfChapter, isFinishedWriting, isFinishedWritingChoice, setIsFinishedWritingChoice, index }) => {
     const [textAfterTimeout, setTextAfterTimeout] = useState("");
 
     const handleChoiceButtonClick = () => {
@@ -23,13 +21,13 @@ export const Choices = ({ id, text, timeoutTime, whichPartOfChapter, setWhichPar
         } else {
             localStorage.setItem("events", [id])
         }
-    }
+    };
 
     const timeoutBetweenComponents = () => {
         setTimeout(() => {
             setTextAfterTimeout(text.substring(0, isFinishedWritingChoice));
-        }, 1000 * timeoutTime)
-    }
+        }, 1000 * timeoutTime);
+    };
 
     useEffect(() => {
         if (isFinishedWriting) {
@@ -51,10 +49,11 @@ export const Choices = ({ id, text, timeoutTime, whichPartOfChapter, setWhichPar
     }, [whichPartOfChapter]);
 
     return (
-        <div className='choices_container'>
-            <span className='choices_button' onClick={handleChoiceButtonClick}>
+        <div className="choices_container">
+            <span className={`choices_button ${selectedChoiceIndex === index ? 'choices_button_selected' : ''}`} 
+                onClick={handleChoiceButtonClick}>
                 {textAfterTimeout}
             </span>
         </div>
     );
-}
+};

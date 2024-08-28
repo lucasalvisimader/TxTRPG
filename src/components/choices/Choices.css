@@ -1,3 +1,9 @@
 .choices_button {
     color: var(--white);
+    cursor: pointer;
+}
+
+.choices_button_selected {
+    color: greenyellow;
+    font-weight: bold;
 }
